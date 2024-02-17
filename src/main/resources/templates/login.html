@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>login</title>
+</head>
+<body>
+	<script src="./js/jquery-3.7.1.min.js"></script>
+
+	<div>
+		<span>手機：</span>
+		<input id="phoneNum"><br>
+		<span>密碼：</span>
+		<input type="password" id="password"><br>
+		<button id="btn">登入</button>
+	</div>
+
+	<script>
+		function init() {
+			$("#btn").on("click", function(e){
+				e.preventDefault();
+                $.ajax({
+                    url: ,
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        phoneNum: $("#phoneNum").val(),
+                        password: $("#password").val()
+                    }),
+                    success: (data) => {
+                        console.log('login success')
+                    },
+                    error: () => {
+                        console.log('login failed')
+                    }
+                });
+			});
+		}
+		
+		window.addEventListener("load", init);
+	</script>
+</body>
+</html>
